@@ -16,8 +16,5 @@ local:
 new:
 	./new_post.sh
 
-publish:
-	./publish.sh
-
-drafts:
-	@ls _drafts/* | grep '-'
+modify:
+	./modify.sh
