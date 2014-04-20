@@ -23,4 +23,4 @@ else
 	echo "---" >> $FILENAME
 fi
 
-vim $FILENAME;
+#vim $FILENAME;

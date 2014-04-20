@@ -15,6 +15,3 @@ local:
 
 new:
 	./new_post.sh
-
-modify:
-	./modify.sh
