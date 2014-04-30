@@ -1,0 +1,18 @@
+
+
+
+.container-narrow {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+html {
+/*  background-color: #fdf6e3;*/
+/*  background-image: url("http://zuchefeng.oss-cn-hangzhou.aliyuncs.com/wood.jpeg");*/
+}
+
+/*index post list*/
+.posts li {
+  font-size: 18px;
+  list-style: none;
+}

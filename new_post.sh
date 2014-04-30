@@ -15,7 +15,7 @@ else
 	read -e LOC
 	echo "---" > $FILENAME
 	echo "" >> $FILENAME
-	echo "layout: post" >> $FILENAME
+	echo "layout: hebi-post" >> $FILENAME
 	echo "title:" $TITLE >> $FILENAME
 	echo "location:" $LOC >> $FILENAME
 	echo "time:" $TIME >> $FILENAME

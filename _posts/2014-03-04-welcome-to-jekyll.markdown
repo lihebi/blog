@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: hebi-post
 title:  "Welcome to Jekyll!"
 date:   2014-03-04 20:56:51
 categories: jekyll update

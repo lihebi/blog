@@ -1,6 +1,6 @@
 ---
 
-layout: post
+layout: hebi-post
 title: first blog
 location: Hefei
 time: 20:57:50
