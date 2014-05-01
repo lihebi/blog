@@ -6,16 +6,8 @@ title: Hebi's Blog
 <div id="home">
   <!--   <h1>Blog Posts</h1> -->
   <div class="posts">
-    {% for post in site.posts %}
-    <div>
-      <h1><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h1>
 
-      <div> {{ post.excerpt }} </div>
-
-      <footer>
-        <a rel="full-article" href="{{ post.url }}"> 阅读全文 </a>
-      </footer>
-    </div>
-    {% endfor %}
+    {% assign posts = site.posts %}
+    {% include posts.html %}
   </div>
 </div>

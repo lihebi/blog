@@ -2,7 +2,7 @@
 
 
 
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid container-narrow">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -15,15 +15,32 @@
       <a class="navbar-brand" href="/">Hebi!</a>
     </div>
 
-<!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/"> {{ site.name }} </a></li>
+        <li  id="slidebar-toggle"><a href="#"> Menu </a></li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </nav>
 <div class='container-narrow'>
   {{ content }}
+</div>
+<div id="sidebar" class="sb-slidebar sb-left">
+  <!-- Your left Slidebar content. -->
+  <span>Categories</span>
+  <span>Tags</span>
+  <ul>
+    {% capture tags %}
+    {% for tag in site.tags %}
+    {{ tag[0] }}
+    {% endfor %}
+    {% endcapture %}
+    {% assign sortedtags = tags | split:' ' | sort %}
+
+    {% for tag in sortedtags %}
+    <li>{{tag}}</li>
+    {% endfor %}
+  </ul>
 </div>
 
 {% include foot.html %}

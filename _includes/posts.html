@@ -1,0 +1,17 @@
+<div class="posts">
+  {% for post in posts %}
+  <div>
+    <h1><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date_to_string }}</small></h1>
+
+    <div> {{ post.excerpt }} </div>
+
+    <div id="tags" style="display: inline-block">
+      {% for tag in post.tags %}
+      <a class="btn btn-success" href="/tags.html?{{tag}}"> {{ tag }} </a>
+      {% endfor %}
+    </div>
+
+    <a rel="full-article" href="{{ post.url }}" class="pull-right"> 阅读全文 </a>
+  </div>
+  {% endfor %}
+</div>

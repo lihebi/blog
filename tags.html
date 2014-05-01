@@ -1,0 +1,28 @@
+---
+layout: hebi-default
+title: Tags Index
+---
+
+
+{% capture tags %}
+{% for tag in site.tags %}
+{{ tag[0] }}
+{% endfor %}
+{% endcapture %}
+{% assign sortedtags = tags | split:' ' | sort %}
+
+{% for tag in sortedtags %}
+<div id="{{ tag }}" class="tag">
+  <h3>{{ tag }}</h3>
+  {% assign posts = site.tags[tag] %}
+  {% include posts.html %}
+</div>
+{% endfor %}
+
+<script>
+$('.tag').hide();
+var p = /\?(.+)/;
+var tag = p.exec(document.URL)[1];
+tag = (decodeURIComponent(tag));
+$('#'+tag).show();
+</script>

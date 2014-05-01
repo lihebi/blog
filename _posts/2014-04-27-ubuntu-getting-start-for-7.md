@@ -4,6 +4,8 @@ layout: hebi-post
 title: ubuntu getting start for 7
 location: Hefei
 time: 10:57:25
+categories: 技术
+tags: ubuntu
 
 ---
 
