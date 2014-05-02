@@ -12,7 +12,8 @@ title: Tags Index
 {% assign sortedtags = tags | split:' ' | sort %}
 
 {% for tag in sortedtags %}
-<div id="{{ tag }}" class="tag">
+<!-- the reason of use taglist instead of tag is: it is in conflict with prettify -->
+<div id="{{ tag }}" class='taglist'>
   <h3>{{ tag }}</h3>
   {% assign posts = site.tags[tag] %}
   {% include posts.html %}
@@ -20,9 +21,10 @@ title: Tags Index
 {% endfor %}
 
 <script>
-$('.tag').hide();
+$('.taglist').hide();
 var p = /\?(.+)/;
 var tag = p.exec(document.URL)[1];
 tag = (decodeURIComponent(tag));
 $('#'+tag).show();
+
 </script>

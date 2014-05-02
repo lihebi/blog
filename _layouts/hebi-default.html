@@ -45,11 +45,19 @@
     {% assign sortedtags = tags | split:' ' | sort %}
 
     {% for tag in sortedtags %}
-    <li><a href="/tags.html?{{tag}}">{{tag}}</a></li>
+    <li>
+      <a id="{{tag}}-nav" href="/tags.html?{{tag}}">{{tag}} ({{ site.tags[tag].size }})</a>
+    </li>
     {% endfor %}
   </ul>
   <ul>
     <li><label>Categories</label></li>
+    {% for category in site.categories %}
+    {% assign cate = category[0] %}
+    <li>
+      <a id="{{cate}}-nav" href="/categories.html?{{cate}}">{{cate}} ({{site.categories[cate].size}})</a>
+    </li>
+    {% endfor %}
   </ul>
 </div>
 

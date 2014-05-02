@@ -16,12 +16,9 @@ $().ready(function() {
   $('code').addClass("prettyprint");
   prettyPrint();
 
-  // var mySlidebars = new $.slidebars();
-  // $('#slidebar-toggle').on('click', function() {
-  //   mySlidebars.toggle('left');
-  // });
   key('g', function(){
-    // mySlidebars.toggle('left');
     toggleSidebar();
   });
+
+  $('table').addClass('table table-striped');
 });
