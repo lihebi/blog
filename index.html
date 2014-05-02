@@ -3,11 +3,5 @@ layout: hebi-default
 title: Hebi's Blog
 ---
 
-<div id="home">
-  <!--   <h1>Blog Posts</h1> -->
-  <div class="posts">
-
-    {% assign posts = site.posts %}
-    {% include posts.html %}
-  </div>
-</div>
+{% assign posts = site.posts %}
+{% include posts.html %}

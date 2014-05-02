@@ -22,14 +22,13 @@
     </div>
   </div>
 </nav>
-<div class='container-narrow'>
+<div class='container-narrow' id="main">
   {{ content }}
 </div>
-<div id="sidebar" class="sb-slidebar sb-left">
-  <!-- Your left Slidebar content. -->
-  <span>Categories</span>
-  <span>Tags</span>
+<!-- <div id="sidebar" class="sb-slidebar sb-left">
+
   <ul>
+    <li>Tags</li>
     {% capture tags %}
     {% for tag in site.tags %}
     {{ tag[0] }}
@@ -38,9 +37,9 @@
     {% assign sortedtags = tags | split:' ' | sort %}
 
     {% for tag in sortedtags %}
-    <li>{{tag}}</li>
+    <li><a href="/tags.html?{{tag}}">{{tag}}</a></li>
     {% endfor %}
   </ul>
-</div>
+</div> -->
 
 {% include foot.html %}

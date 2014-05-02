@@ -3,16 +3,31 @@
 
 .container-narrow {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 700px;
 }
 
 html {
 /*  background-color: #fdf6e3;*/
 /*  background-image: url("http://zuchefeng.oss-cn-hangzhou.aliyuncs.com/wood.jpeg");*/
+background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
+background-image: url("/images/checker.png");
 }
 
 body {
-  background-color: #e4e4e4;
+/*  background-color: #e4e4e4;*/
+  background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
+  background-image: url("/images/checker.png");
+}
+
+nav {
+  display: none;
+}
+
+#main {
+  background-color: rgba(222,222,222,1);
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 20px;
 }
 
 .posts > div {
@@ -21,6 +36,28 @@ body {
 /*  margin: 20px;*/
   border-bottom: 1px solid #000;
 }
+.posts > div:last-child {
+  border-bottom: none;
+}
 
 #sidebar {
+  color: white;
+  font-size: 14px;
+  font-family:
+}
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+#sidebar ul li {
+  border-top: solid 1px #5e5e5e;
+/*  cursor: pointer;*/
+  padding: 10px;
+}
+#sidebar ul li:first {
+  border-top: none;
+}
+
+#copyright {
+  margin: 10px auto;
 }

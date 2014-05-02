@@ -3,7 +3,13 @@ layout: hebi-default
 ---
 
 <h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<span class="meta">{{ page.date | date_to_string }}</span>
+
+<div id="tags" class="pull-right" style="display: inline-block">
+  {% for tag in page.tags %}
+  <a class="btn btn-success" href="/tags.html?{{tag}}"> {{ tag }} </a>
+  {% endfor %}
+</div>
 
 <div class="post">
   {{ content }}
