@@ -15,15 +15,16 @@ $().ready(function() {
 
   $('code').addClass("prettyprint");
   prettyPrint();
-  closeSidebar();
 
   // var mySlidebars = new $.slidebars();
   // $('#slidebar-toggle').on('click', function() {
   //   mySlidebars.toggle('left');
   // });
-
+  alert('before');
   key('g', function(){
     // mySlidebars.toggle('left');
+    alert('g');
     toggleSidebar();
   });
+  alert('after');
 });
