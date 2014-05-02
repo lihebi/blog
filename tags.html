@@ -26,5 +26,8 @@ var p = /\?(.+)/;
 var tag = p.exec(document.URL)[1];
 tag = (decodeURIComponent(tag));
 $('#'+tag).show();
+$().ready(function() {
+  $('#'+tag+'-nav').addClass('active');
+});
 
 </script>
