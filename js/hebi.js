@@ -20,10 +20,8 @@ $().ready(function() {
   // $('#slidebar-toggle').on('click', function() {
   //   mySlidebars.toggle('left');
   // });
-  alert(key);
   key('g', function(){
     // mySlidebars.toggle('left');
-    alert('g');
     toggleSidebar();
   });
 });
