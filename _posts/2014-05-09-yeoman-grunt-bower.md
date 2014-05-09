@@ -29,6 +29,45 @@ grunt
 #### grunt wildcard
 
 ```
+* # matches any number of characters, but not /
+? # matches a single character, but not /
+** # matches any number of characters, including /, as long as it's the only thing in a path part
+{} # allows for a comma-separated list of "or" expressions
+! # at the beginning of a pattern will negate the match
+```
+
+Examples:
+
+```
+// You can specify single files:
+{src: 'foo/this.js', dest: ...}
+// Or arrays of filges:
+{src: ['foo/this.js', 'foo/that.js', 'foo/the-other.js'], dest: ...}
+// Or you can generalize with a glob pattern:
+{src: 'foo/th*.js', dest: ...}
+
+// This single node-glob pattern:
+{src: 'foo/{a,b}*.js', dest: ...}
+// Could also be written like this:
+{src: ['foo/a*.js', 'foo/b*.js'], dest: ...}
+
+// All .js files, in foo/, in alpha order:
+{src: ['foo/*.js'], dest: ...}
+// Here, bar.js is first, followed by the remaining files, in alpha order:
+{src: ['foo/bar.js', 'foo/*.js'], dest: ...}
+
+// All files except for bar.js, in alpha order:
+{src: ['foo/*.js', '!foo/bar.js'], dest: ...}
+// All files in alpha order, but with bar.js at the end.
+{src: ['foo/*.js', '!foo/bar.js', 'foo/bar.js'], dest: ...}
+
+// Templates may be used in filepaths or glob patterns:
+{src: ['src/<%= basename %>.js'], dest: 'build/<%= basename %>.min.js'}
+// But they may also reference file lists defined elsewhere in the config:
+{src: ['foo/*.js', '<%= jshint.all.src %>'], dest: ...}
+```
+
+```
 exports.warnOn = 'Gruntfile.js';        // Warn on a Gruntfile.js file.
 exports.warnOn = '*.js';            // Warn on any .js file.
 exports.warnOn = '*';               // Warn on any non-dotfile or non-dotdir.
