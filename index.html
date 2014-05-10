@@ -5,5 +5,30 @@ title: Hebi's Blog
 <div id='index-title'>
   <h1>何必</h1>
 </div>
-{% assign posts = site.posts %}
+<!-- {% assign posts = site.posts %} -->
+{% assign posts = paginator.posts %}
 {% include posts.html %}
+
+<ul class="pagination pagination-lg">
+  {% if paginator.previous_page %}
+    <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span>&laquo;</span></a></li>
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <li class="disabled"><a>{{ page }}</a></li>
+    {% elsif page == 1 %}
+      <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+    {% else %}
+      <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span>&raquo;</span></a></li>
+  {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+</ul>
