@@ -103,54 +103,104 @@ ssize_t recv(int socket, void *rcvBuffer, size_t bufferLength, int flags);
 #### TCP client
 
 ```
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h> // for memset
 #include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h> // for IPPROTO_TCP
+#include <unistd.h> // for close. use `man close`
+#include <arpa/inet.h>
 
-int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+#define BUFFER_SIZE 30
 
-struct sockaddr_in servAddr;
-memset(&servAddr, 0, sizeof(servAddr));
-servAddr.sin_family = AF_INET;
-inet_pton(AF_INET, servIP, &servAddr.sin_addr.s_addr);
-servAddr.sin_port = htons(servPort);
+int main() {
 
-connect(sock, (struct sockaddr *)&servAddr, sizeof(servAddr));
+  // 创建socket
+  int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-char str[] = "Hello"
-size_t size = strlen(str);
-send(sock, str, size, 0);
+  // 构造servAddr
+  char *servIP = "127.0.0.1";
+  in_port_t servPort = 8080;
+  struct sockaddr_in servAddr;
+  memset(&servAddr, 0, sizeof(servAddr));
+  servAddr.sin_family = AF_INET;
+  // IP地址格式转换
+  inet_pton(AF_INET, servIP, &servAddr.sin_addr.s_addr);
+  servAddr.sin_port = htons(servPort);
 
-char buffer[BUFFER_SIZE];
-recv(sock, buffer, BUFFER_SIZE-1, 0);
-close(sock);
+  // 建立连接
+  connect(sock, (struct sockaddr *)&servAddr, sizeof(servAddr));
+
+  char str[] = "Hello";
+  size_t size = strlen(str);
+  // 发送数据
+  send(sock, str, size, 0);
+
+  char buffer[BUFFER_SIZE];
+  // 接收返回的数据，放到buffer里
+  recv(sock, buffer, BUFFER_SIZE-1, 0);
+
+  // 关闭socket
+  close(sock);
+
+}
+
 ```
 
 #### TCP server
 
 ```
-int servSock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h> // for memset
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h> // for IPPROTO_TCP
+#include <unistd.h> // for close. use `man close`
 
-struct sockaddr_in servAddr;
-memset(&servAddr, 0, sizeof(servAddr));
-servAddr.sin_family = AF_INET;
-servAddr.sin_addr.s_addr = htonl(INADDR_ANY); // any incoming interface
-servAddr.sin_port = htons(servPort);
+#define BUFSIZE 30
 
-bind(servSock, (struct sockaddr *)&servAddr, sizeof(servAddr));
-
-listen(servSock, 5);
-
-for(;;) {
-  struct sockaddr_in clntAddr;
-  socklen_t clntAddrLen = sizeof(clntAddr);
-  int clntSock = accept(servSock, (struct sockaddr *)&clntAddr, &clntAddrLen);
-  handle(clntSock);
-}
-handle(int clntSock) {
+void handle(int clntSock) {
   char buffer[BUFSIZE];
+  // 从client端socket接收数据，存入buffer，返回接受长度。一次只收BUFSIZE个字节。
   ssize_t numBytesRcvd = recv(clntSock, buffer, BUFSIZE, 0);
-  while(numByteRcvd>0) {
+  // 循环接收直到收完为止。
+  while(numBytesRcvd>0) {
+    // 将接收到的buffer，send到client端buffer
     send(clntSock, buffer, numBytesRcvd, 0);
-    numByteRcvd = recv(clntSock, buffer, BUFSIZE, 0);
+    // 接着接收没收完的。
+    numBytesRcvd = recv(clntSock, buffer, BUFSIZE, 0);
   }
-  close(clntSocket);
+  // 关闭socket
+  close(clntSock);
 }
+
+int main(){
+  // 创建socket
+  int servSock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+  // 构造servAddr
+  in_port_t servPort = 8080;
+  struct sockaddr_in servAddr;
+  memset(&servAddr, 0, sizeof(servAddr));
+  servAddr.sin_family = AF_INET;
+  servAddr.sin_addr.s_addr = htonl(INADDR_ANY); // any incoming interface
+  servAddr.sin_port = htons(servPort);
+
+  // socket绑定到servAddr
+  bind(servSock, (struct sockaddr *)&servAddr, sizeof(servAddr));
+
+  // 监听socket
+  listen(servSock, 5);
+
+  for(;;) {
+    struct sockaddr_in clntAddr;
+    socklen_t clntAddrLen = sizeof(clntAddr);
+    // 接受socket来的请求，把来的socket存入clntSock
+    int clntSock = accept(servSock, (struct sockaddr *)&clntAddr, &clntAddrLen);
+    // 处理之
+    handle(clntSock);
+  }
+}
+```
