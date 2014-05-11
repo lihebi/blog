@@ -26,6 +26,8 @@ grunt test
 grunt
 ```
 
+<!--more-->
+
 #### grunt wildcard
 
 ```

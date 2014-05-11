@@ -19,6 +19,9 @@ tags: ubuntu
 
 # 快捷键
 Ctrl-Alt-箭头: 切换工作区
+
+<!--more-->
+
 # VPN
 桌面上ustcvpn是科大vpn，vpn是翻墙vpn。
 

@@ -21,6 +21,8 @@ str.slice(begin, end)
 ‘hello world’.slice(0, -2) ==> ‘hello wor’
 ```
 
+<!--more-->
+
 ## Function
 
 #### 定义函数的区别

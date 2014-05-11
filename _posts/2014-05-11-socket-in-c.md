@@ -18,6 +18,8 @@ socket
 int socket(int domain, int type, int protocol);
 ```
 
+<!--more-->
+
 inet_pton
 
 ```
