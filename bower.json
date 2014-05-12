@@ -1,0 +1,23 @@
+{
+  "name": "presentation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/lihebi/presentation",
+  "authors": [
+    "Hebi Li <lihebi@mail.ustc.edu.cn>"
+  ],
+  "dependencies": {
+    "impress.js": "latest",
+    "bootstrap": "latest",
+    "jquery": "latest",
+    "google-code-prettify": "latest",
+    "keymaster": "latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

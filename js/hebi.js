@@ -13,12 +13,15 @@ $().ready(function() {
     }
   }
 
-  $('code').addClass("prettyprint");
+  // google code prettify
+  $('pre').addClass("prettyprint");
   prettyPrint();
 
+  // keymaster
   key('g', function(){
     toggleSidebar();
   });
 
+  // bootstrap table style
   $('table').addClass('table table-striped');
 });
