@@ -9,6 +9,12 @@ time: 22:47:45
 
 ## 变量
 
+""中的变量$xxx会解析,''不会.
+
+```
+`xxx` <=> $(xxx)
+```
+
 #### 变量替换
 
 **返回结果，但不改变原变量的值。**
@@ -68,6 +74,93 @@ substring使用的是bash中的正则。
 * `${string##substring}` 从*开头*删除substring的*最长*匹配
 * `${string%substring}` 从*结尾*删除substring的*最短*匹配
 * `${string%%substring}` 从*结尾*删除substring的*最长*匹配
+
+* `${string/substring/replace}` 第一个匹配的substring替换为replace
+* `${string/#substring/replace}` 开头是substring,则换为replace
+* `${string/%substring/replace}` 结尾时substring,则换为replace
+
+substring若不加引号,则为正常字符串,加引号则可用$转义.
+
+## 用户交互
+
+```
+read -p "please input: " a b c
+```
+
+## 条件测试
+
+```
+test <exp>
+[ <exp> ]
+[[ <exp> ]]
+```
+
+#### 文件测试
+
+* `-e <file>` 存在
+* `-f <file>` 普通文件?
+* `-d <file>` 目录?
+* `-L <file>` 符号链接?
+* `-s <file>` 非空?(size!=0)
+* `-r <file>` 可读?
+* `-w <file>` 可写?
+* `-x <file>` 可执行?
+* `<file1> -nt <file2>` newer than?
+* `<file1> -ot <file2>` older than?
+
+#### 字符串测试
+
+* `-z <string>` 空?
+* `-n <string>` 非空?
+* `string1` == `string2` 相等? 也可直接用=
+* `string1` != `string2`
+
+#### 整数
+
+[]
+
+* `-eq`
+* `-ne`
+* `-gt`
+* `-ge`
+* `-lt`
+* `-le`
+
+(())
+
+* ==
+* !=
+* >
+* >=
+* <
+* <=
+
+#### 逻辑
+
+[]
+
+* -a
+* -o
+* !
+
+[[]]
+
+* &&
+* ||
+* !
+
+## 数值计算
+
+```
+(( a=2+3 ))
+a = $(( 2+3 ))
+
+a = ((12))
+echo $((a++)) # => 12
+echo $((++a)) # => 14
+
+echo ((5>3)) # => 1
+```
 
 ## 语法结构
 
