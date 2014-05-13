@@ -1,13 +1,34 @@
 ---
 
 layout: hebi-post
-title: Shell
+title: Shell Script
 location: 合肥
 time: 22:47:45
 
 ---
 
-## 特殊变量
+## 变量
+
+#### 变量替换
+
+**返回结果，但不改变原变量的值。**
+
+```
+# 若var未被声明，则以DEFAULT为其值
+${var-DEFAULT}
+${var=DEFAULT}
+# 若
+# 1. var 未被声明 或
+# 2. 其值为空
+# 则以DEFAULT为其值
+${var:-DEFAULT}
+${var:=DEFAULT}
+```
+
+
+<!--more-->
+
+#### 特殊变量
 
 ```
 $0 # 脚本名称
@@ -29,8 +50,6 @@ $@ # 所有参数，作为字符串数组
 "$@" => [ "./a.sh" "hello" "world" ]
 ```
 
-<!--more-->
-
 ```
 $$ # 当前进程的PID
 $? # 上一个命令的返回值
@@ -38,7 +57,20 @@ $! # 运行在后台的最后一个进程的PID。done了也算。
 $_ # 上个命令的最后一个字段
 ```
 
-## 基本语法
+## 字符串
+
+substring使用的是bash中的正则。
+
+* `${#string}` $string的长度
+* `${string:5}` $string 从5位置开始的子串
+* `${string:5:3}` 5位置开始，提取3个。
+* `${string#substring}` 从*开头*删除substring的*最短*匹配
+* `${string##substring}` 从*开头*删除substring的*最长*匹配
+* `${string%substring}` 从*结尾*删除substring的*最短*匹配
+* `${string%%substring}` 从*结尾*删除substring的*最长*匹配
+
+## 语法结构
+
 
 #### If
 
@@ -107,12 +139,4 @@ function func {
 func() {
   return 1;
 }
-```
-
-## 命令
-
-#### echo
-
-```
-echo -e "\n\thello\tworld\n" # 可以使用\n等控制字符
 ```
