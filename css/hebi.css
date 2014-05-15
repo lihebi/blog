@@ -21,8 +21,8 @@ a:hover {
 }
 
 .container-narrow {
-  margin: 0 auto;
-  max-width: 1000px;
+  margin: 0 50px;
+  /*max-width: 1000px;*/
 }
 
 html {
