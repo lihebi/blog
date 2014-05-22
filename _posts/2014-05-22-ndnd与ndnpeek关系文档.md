@@ -36,6 +36,8 @@ main(int argc, char **argv)
 }
 ```
 
+<!--more-->
+
 使用ndnd_create创建了一个ndnd_handle.
 运行ndnd_run.
 
