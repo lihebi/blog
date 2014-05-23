@@ -22,6 +22,11 @@ $().ready(function() {
     toggleSidebar();
   });
 
+  $('#menu-btn a').click(function(e) {
+    e.preventDefault();
+    toggleSidebar();
+  });
+
   // bootstrap table style
   $('table').addClass('table table-striped');
 });

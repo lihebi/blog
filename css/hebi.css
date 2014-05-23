@@ -63,6 +63,17 @@ html {
   height: 100%;
 }
 
+#menu-btn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 20px;
+}
+
+#menu-btn a {
+  color: black;
+}
+
 #index-title {
   margin: 40px auto;
   text-align: center;
