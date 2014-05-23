@@ -4,7 +4,7 @@ layout: hebi-post
 title: C Standard Lib
 location: 合肥
 time: 13:32:22
-
+categories: 库
 ---
 
 ## strings.h

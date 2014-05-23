@@ -4,7 +4,7 @@ layout: hebi-post
 title: AppleScript
 location: 合肥
 time: 23:16:46
-
+categories: 语言
 ---
 
 ## Basics

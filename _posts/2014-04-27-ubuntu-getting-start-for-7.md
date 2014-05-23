@@ -1,10 +1,10 @@
 ---
 
 layout: hebi-post
-title: ubuntu getting start for 7
+title: 给7的ubuntu入门
 location: Hefei
 time: 10:57:25
-categories: 技术
+categories: 系统
 tags: ubuntu
 
 ---

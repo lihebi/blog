@@ -4,7 +4,7 @@ layout: hebi-post
 title: Shell Script
 location: 合肥
 time: 22:47:45
-
+categories: 语言
 ---
 
 ## 变量
