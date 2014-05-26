@@ -1,10 +1,10 @@
 ---
-
-layout: hebi-post
+layout: "hebi-post"
 title: Shell Script
 location: 合肥
-time: 22:47:45
+time: 82065
 categories: 语言
+published: true
 ---
 
 ## 变量
@@ -98,6 +98,7 @@ test <exp>
 #### 文件测试
 
 * `-e <file>` 存在
+* `-a <file>` 更好的存在.(有时候-e会出错)
 * `-f <file>` 普通文件?
 * `-d <file>` 目录?
 * `-L <file>` 符号链接?
