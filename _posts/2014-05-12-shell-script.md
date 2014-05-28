@@ -7,7 +7,7 @@ categories: 语言
 published: true
 ---
 
-## 变量
+# 变量
 
 ""中的变量$xxx会解析,''不会.
 
@@ -15,7 +15,7 @@ published: true
 `xxx` <=> $(xxx)
 ```
 
-#### 变量替换
+## 变量替换
 
 **返回结果，但不改变原变量的值。**
 
@@ -34,7 +34,7 @@ ${var:=DEFAULT}
 
 <!--more-->
 
-#### 特殊变量
+## 特殊变量
 
 ```
 $0 # 脚本名称
@@ -63,7 +63,7 @@ $! # 运行在后台的最后一个进程的PID。done了也算。
 $_ # 上个命令的最后一个字段
 ```
 
-## 字符串
+# 字符串
 
 substring使用的是bash中的正则。
 
@@ -81,13 +81,13 @@ substring使用的是bash中的正则。
 
 substring若不加引号,则为正常字符串,加引号则可用$转义.
 
-## 用户交互
+# 用户交互
 
 ```
 read -p "please input: " a b c
 ```
 
-## 条件测试
+# 条件测试
 
 ```
 test <exp>
@@ -95,7 +95,7 @@ test <exp>
 [[ <exp> ]]
 ```
 
-#### 文件测试
+## 文件测试
 
 * `-e <file>` 存在
 * `-a <file>` 更好的存在.(有时候-e会出错)
@@ -109,14 +109,14 @@ test <exp>
 * `<file1> -nt <file2>` newer than?
 * `<file1> -ot <file2>` older than?
 
-#### 字符串测试
+## 字符串测试
 
 * `-z <string>` 空?
 * `-n <string>` 非空?
 * `string1` == `string2` 相等? 也可直接用=
 * `string1` != `string2`
 
-#### 整数
+## 整数
 
 []
 
@@ -136,7 +136,7 @@ test <exp>
 * <
 * <=
 
-#### 逻辑
+## 逻辑
 
 []
 
@@ -150,7 +150,7 @@ test <exp>
 * ||
 * !
 
-## 数值计算
+# 数值计算
 
 ```
 (( a=2+3 ))
@@ -163,10 +163,10 @@ echo $((++a)) # => 14
 echo ((5>3)) # => 1
 ```
 
-## 语法结构
+# 语法结构
 
 
-#### If
+## If
 
 ```
 if condition1; then
@@ -192,7 +192,7 @@ fi
 如果语句后面是行结束符，不需要。
 如果有`then`等在一行上，需要。
 
-#### Case
+## Case
 
 ```
 case $a in
@@ -201,7 +201,7 @@ case $a in
 esac
 ```
 
-#### 循环
+## 循环
 
 ```
 # while
@@ -221,7 +221,7 @@ for (( i=1; i<5; i++ ))
 
 可以使用`break`, `continue`.
 
-#### 函数
+## 函数
 
 ```
 # 形式1
@@ -233,4 +233,48 @@ function func {
 func() {
   return 1;
 }
+```
+
+# 一些脚本
+
+## ffmpeg 连接文件
+
+Create a file mylist.txt with all the files you want to have concatenated in the following form (lines starting with a # are ignored):
+
+```
+# this is a comment
+file '/path/to/file1'
+file '/path/to/file2'
+file '/path/to/file3'
+```
+
+then
+
+```
+ffmpeg -f concat -i mylist.txt -c copy output
+```
+
+generate mylist.txt
+
+```
+for f in ./*.wav; do echo "file '$f'" >> mylist.txt; done
+```
+
+官方文档：[concat][ffmpeg]
+
+[ffmpeg]: https://trac.ffmpeg.org/wiki/How%20to%20concatenate%20(join,%20merge)%20media%20files)
+
+```sh
+#!/bin/bash
+
+mkdir out
+echo -n "concat:" > out/list.txt
+for f in *.mp4
+do
+    ffmpeg -i $f -c copy -bsf:v h264_mp4toannexb -f mpegts 'out/'$f'.ts'
+    echo -n $f'.ts|' >> out/list.txt
+done
+
+cd out
+ffmpeg -i `cat list.txt` -c copy -bsf:a aac_adtstoasc output.mp4
 ```
