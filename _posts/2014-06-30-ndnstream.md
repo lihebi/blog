@@ -53,6 +53,8 @@ BOOST_FOREACH (const pit::IncomingFace &incoming, pitEntry->GetIncoming ())
 
 ## 客户端代码
 
+https://github.com/lihebi/ndnstream
+
 # Future Work
 
 ## ndnSIM代码
