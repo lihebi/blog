@@ -8,6 +8,9 @@ time: 11:10:34
 ---
 
 # 概述
+路由收到interest后，检测是不是流interest。
+如果是，则在收到相应的data后，重新加入一个pit，来收取下一个data。
+
 
 # 实现
 ## ndnSIM代码修改
