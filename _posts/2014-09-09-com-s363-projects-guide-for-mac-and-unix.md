@@ -101,4 +101,5 @@ Btw, I'm Hebi Li.
 
 ##quick links
 [Course Website](http://www.cs.iastate.edu/~cs363)
+
 [Getting Help page on Course Website](http://www.cs.iastate.edu/~cs363/Getting_Help/Getting_Help.htm)
