@@ -51,6 +51,9 @@ To compile the file `ComS363/Demos/A_Java_Demo/Java_Demo.java`, go to that direc
 javac Java_Demo.java
 ```
 
+###run in commandline(Optional)
+Now if you run `ls` command, you should see the output file `Java_Demo.class`. Instead of run it in `CyDIW`, you can just type `java Java_Demo`, and the output should appear.
+
 ###modify command file
 The file `Compile_and_run_Java_from_CyDIW_Demo.txt` has to be modified before run in Mac or Unix. The program should be:
 
