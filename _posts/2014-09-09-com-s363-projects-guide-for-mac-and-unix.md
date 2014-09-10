@@ -62,6 +62,7 @@ $OS:> java -cp ComS363/Demos/A_Java_Demo Java_Demo
 ```
 
 Note:
+
 * In Mac/Unix, there's no need to set environment variables `PATH` and `CLASSPATH`, since it is set in the system level. Be sure to remove or uncomment the `OS:>set ...` part.
 * The redirect function `> output.txt` didn't work in `CyDIW`
 
