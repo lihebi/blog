@@ -7,6 +7,8 @@ time: 22:33:02
 
 ---
 
+If you are not familiar with command line, learn yourself. Links below may help.
+
 #Environment Setup
 If you use mac, you may already have java environment set up for you. To check this, go to terminal and execute this command:
 
@@ -103,3 +105,7 @@ Btw, I'm Hebi Li.
 [Course Website](http://www.cs.iastate.edu/~cs363)
 
 [Getting Help page on Course Website](http://www.cs.iastate.edu/~cs363/Getting_Help/Getting_Help.htm)
+
+[SSG support](https://support.cs.iastate.edu/)
+
+[Linux Reference](https://support.cs.iastate.edu/doku.php/faq/linuxref)
