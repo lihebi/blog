@@ -89,10 +89,10 @@ java -cp ComS363/Demos/A_JDBC_Demo:ComS363/Demos/A_JDBC_Demo/mysql-connector-jav
 Note:
 
 * remove or uncomment the enviroment path set part
-* if you can't find the file `mysql-connector-java-5.0.5.jar`(at least I didn't find it), download it [[here | http://dev.mysql.com/downloads/connector/j/ ]]. Be sure to make the filename the same as the file you downloaded(currently the newest is 5.1.32). Put the file into the folder `ComS363/Demos/A_JDBC_Demo`
+* if you can't find the file `mysql-connector-java-5.0.5.jar`(at least I didn't find it), download it [here](http://dev.mysql.com/downloads/connector/j). Be sure to make the filename the same as the file you downloaded(currently the newest is 5.1.32). Put the file into the folder `ComS363/Demos/A_JDBC_Demo`
 
 
 
 #Getting Help
 If you have any question, contact me by email:
-[[ hebi at iastate.edu | mailto: hebi@iastate.edu ]]
+[hebi at iastate.edu](mailto: hebi@iastate.edu)
