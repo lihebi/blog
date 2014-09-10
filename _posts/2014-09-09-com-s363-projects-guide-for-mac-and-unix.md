@@ -1,7 +1,7 @@
 ---
 
 layout: hebi-post
-title: Com S511 Projects Guide for Mac and Unix
+title: Com S363 Projects Guide for Mac and Unix
 location: Ames, IA
 time: 22:33:02
 
