@@ -9,6 +9,8 @@ time: 22:33:02
 
 If you are not familiar with command line, learn yourself. Links below may help.
 
+**You can NOT use your home network to access pyrite server. Please use school internet.**
+
 #Environment Setup
 If you use mac, you may already have java environment set up for you. To check this, go to terminal and execute this command:
 
@@ -92,6 +94,34 @@ Note:
 
 * remove or comment out the enviroment path set part
 * if you can't find the file `mysql-connector-java-5.0.5.jar`(at least I didn't find it), download it [here](http://dev.mysql.com/downloads/connector/j). Be sure to make the filename the same as the file you downloaded(currently the newest is 5.1.32). Put the file into the folder `ComS363/Demos/A_JDBC_Demo`
+
+#Submit Instruction
+
+1. compress the folder you are going to submit. Now say you have the file `P0.zip` ready.
+2. in terminal, `cd` to your folder that contains `P0.zip`. run the command:
+
+```
+scp P0.zip id@pyrite.cs.iastate.edu:/~
+```
+where `id` is your net-ID. You will be asked to enter your password.
+3. connect to `pyrite` using ssh:
+
+```
+ssh id@pyrite.cs.iastate.edu
+```
+
+4. now you run `ls`, you should see `P0.zip`. run
+
+```
+unzip P0.zip
+```
+you will get the folder back.
+
+5. submit by `turnin`
+
+```
+turnin cs363 Fall2014/ProjectP0 P0 
+```
 
 
 
