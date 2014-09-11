@@ -97,28 +97,34 @@ Note:
 
 #Submit Instruction
 
-1. compress the folder you are going to submit. Now say you have the file `P0.zip` ready.
-2. in terminal, `cd` to your folder that contains `P0.zip`. run the command:
+###1. Compress
+Compress the folder you are going to submit.
+Just right click and choose `compress`
+
+Now say you have the file `P0.zip` ready to go.
+###2. Send to Pyrite Server
+in terminal, `cd` to your folder that contains `P0.zip`. run the command:
 
 ```
 scp P0.zip id@pyrite.cs.iastate.edu:/~
 ```
 where `id` is your net-ID. You will be asked to enter your password.
-3. connect to `pyrite` using ssh:
+###3. Connect to Pyrite
+connect to `pyrite` using ssh:
 
 ```
 ssh id@pyrite.cs.iastate.edu
 ```
 
-4. now you run `ls`, you should see `P0.zip`. run
+###4. Unzip file
+now you run `ls`, you should see `P0.zip`. run
 
 ```
 unzip P0.zip
 ```
 you will get the folder back.
 
-5. submit by `turnin`
-
+###5. Submit
 ```
 turnin cs363 Fall2014/ProjectP0 P0 
 ```
