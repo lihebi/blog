@@ -106,7 +106,7 @@ Now say you have the file `P0.zip` ready to go.
 in terminal, `cd` to your folder that contains `P0.zip`. run the command:
 
 ```sh
-scp P0.zip id@pyrite.cs.iastate.edu:/~
+scp P0.zip id@pyrite.cs.iastate.edu:~/
 ```
 where `id` is your net-ID. You will be asked to enter your password.
 ###3. Connect to Pyrite
