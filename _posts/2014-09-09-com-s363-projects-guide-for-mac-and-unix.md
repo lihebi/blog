@@ -65,7 +65,7 @@ $OS:> java -cp ComS363/Demos/A_Java_Demo Java_Demo
 
 Note:
 
-* In Mac/Unix, there's no need to set environment variables `PATH` and `CLASSPATH`, since it is set in the system level. Be sure to remove or comment the `OS:>set ...` part.
+* In Mac/Unix, there's no need to set environment variables `PATH` and `CLASSPATH`, since it is set in the system level. Be sure to remove or comment out the `OS:>set ...` part.
 * The redirect function `> output.txt` didn't work in `CyDIW`
 
 ##C. Configuration of CyDIW for MySQL
@@ -90,7 +90,7 @@ java -cp ComS363/Demos/A_JDBC_Demo:ComS363/Demos/A_JDBC_Demo/mysql-connector-jav
 
 Note:
 
-* remove or comment the enviroment path set part
+* remove or comment out the enviroment path set part
 * if you can't find the file `mysql-connector-java-5.0.5.jar`(at least I didn't find it), download it [here](http://dev.mysql.com/downloads/connector/j). Be sure to make the filename the same as the file you downloaded(currently the newest is 5.1.32). Put the file into the folder `ComS363/Demos/A_JDBC_Demo`
 
 
