@@ -105,27 +105,27 @@ Now say you have the file `P0.zip` ready to go.
 ###2. Send to Pyrite Server
 in terminal, `cd` to your folder that contains `P0.zip`. run the command:
 
-```
+```sh
 scp P0.zip id@pyrite.cs.iastate.edu:/~
 ```
 where `id` is your net-ID. You will be asked to enter your password.
 ###3. Connect to Pyrite
 connect to `pyrite` using ssh:
 
-```
+```sh
 ssh id@pyrite.cs.iastate.edu
 ```
 
 ###4. Unzip file
 now you run `ls`, you should see `P0.zip`. run
 
-```
+```sh
 unzip P0.zip
 ```
 you will get the folder back.
 
 ###5. Submit
-```
+```sh
 turnin cs363 Fall2014/ProjectP0 P0 
 ```
 
