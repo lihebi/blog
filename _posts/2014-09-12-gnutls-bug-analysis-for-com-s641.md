@@ -92,8 +92,8 @@ In `C` programming language, every value other than `0` is treated as `true`.
 So, if the function `_gnutls_x509_get_signed_data` fails, the variable `result` is negative.
 When the function `check_if_ca` returns, it returns a negative, which then be regarded as true.
 That is to say, even if the certificate is invalid, it actually passes the CA check.
-This function is used in gnutls_x509_crt_verify which verifies x509 certificates,
-so invalid x509 certificate will pass the check.
+This function is used in `gnutls_x509_crt_verify` which verifies `x509 certificates`,
+so invalid `x509 certificate` will pass the check.
 
 ### Codes that fixes this bug
 
@@ -127,17 +127,18 @@ which ensures that the `check_if_ca` function returns `0`
 to tell the caller that the certificate process fails.
 
 So what causes the problem?
-1. In `C`, programmers use `0` for success and `1` for fail.
-However, `C` will treat negative as `true`, so negative means success too.
-2. In `Unix`, the shell always treats `0` as `true`, and none-zero as false.
-GnuTLS used a third option, which is the opposite of the first one,
-returning `1` for success and `0` for failure, and then mixed that with code that used the C traditional method.
+The confused part is that there are different agreement of how to judge a return state code.
+
+In `C`, programmers often use `0` for success and `1` for fail as a tradition based on `Unix Tradition`.
+GnuTLS used an **completely opposite solution**,
+returning `1` for success and `0` for failure, and then *mixed* that with code that used the C traditional method.
 
 ### Lesson
 Be sure to check if the return value is negative before returning it.
 Hold a clear mind about what the return value means.
+
 Actually one way to avoid this kind of issues is that
-we use state code to check the return value.
+we use explicit error code to check the return value.
 For example:
 
 ```c
@@ -147,6 +148,7 @@ For example:
 ```
 
 In this manner, we can make sure all the value is what we want.
+
 What's more, instead of just checking two possibilities(true or false),
 we can check as many choices as we want without any ambiguity.
 
@@ -158,7 +160,9 @@ Source codes come here:
 
 ```
 #include<stdio.h>
+
 #define CHECK_OK 1
+
 int check(int candidate);
 int do_check(int candidate);
 
@@ -172,7 +176,7 @@ int main() {
 }
 
 /*
- * return
+ * return(Natural Way)
  *  true: pass
  *  0: fail
  */
@@ -187,7 +191,7 @@ fail:
 }
 
 /*
- * return
+ * return(C Tradition)
  *  negative: fail
  *  0: pass
  */
@@ -199,8 +203,10 @@ int do_check(int candidate) {
     }
 }
 ```
+
 Here we have `check` function to check whether the candidate given is valid.
 We define `CHECK_OK=1` as the correct state while we give `3` to the check function.
+
 In main function, we give the result from `check` directly to if statement to judge `Pass` or `Fail`.
 In the implementation of `check`, we do expect to return true for pass and `0` for fail.
 
@@ -211,3 +217,12 @@ So, when the do_check function found a invalid certificate, it returns a negativ
 But in `if` statement in `main` function, issue is caused because `C` treats negative as `true`.
 
 When we compile the program and see the result, `Pass` is outputed even if we input an invalid certificate `3`.
+
+### Further Analysis
+
+Programmers always cannot remember what all return values mean.
+Most good programmers will check if negative values bring some trouble.
+
+For static analysis, this is flow sensitive for that it does make difference when to assign the result for return.
+It is path sensitive analysis because for execution in different branches the assignment differs.
+Besides, some statements are skipped in different executions.
