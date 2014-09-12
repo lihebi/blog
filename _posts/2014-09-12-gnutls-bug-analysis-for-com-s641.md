@@ -132,11 +132,13 @@ Hold a clear mind about what the return value means.
 Actually one way to avoid this kind of issues is that
 we use state code to check the return value.
 For example:
+
 ```c
 #define RETURN_OK 1
 #define RETURN_FAIL 0
 #define RETURN_UNKNOWN 2
 ```
+
 In this manner, we can make sure all the value is what we want.
 What's more, instead of just checking two possibilities(true or false),
 we can check as many choices as we want without any ambiguity.
