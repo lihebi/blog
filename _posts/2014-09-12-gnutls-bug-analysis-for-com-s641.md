@@ -48,6 +48,13 @@ so if you use chrome under a vulnerable version of GnuTLS, you are on risk.
 ### Bug Report
 Not applied.
 
+### Reference
+Critical crypto bug leaves Linux, hundreds of apps open to eavesdropping
+
+by Dan Goodin
+
+http://arstechnica.com/security/2014/03/critical-crypto-bug-leaves-linux-hundreds-of-apps-open-to-eavesdropping/
+
 ## Analysis
 ### Source Code
 The bug lies in `lib/x509/verify.c`:
