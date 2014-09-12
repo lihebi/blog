@@ -29,17 +29,21 @@ time: 04:31:15
 It is used in more than 200 different operating systems or applications
 for implementing crucial SSL and TLS operations.
 
-GnuTLS bug causes the `x509 certificate` to be useless.
+The GnuTLS Bug allows invalid certificates to pass validation check.
+In particular, it causes the `x509 certificate` to be useless.
 When user provide `x509 certificate`,
 the code will pass it even if the certificate fails.
 
 ### Consequence
 
-Hundreds of open source packages, including Red Hat, Ubuntu, Debian,
+It affects ALL Linux. Hundreds of open source packages, including Red Hat, Ubuntu, Debian,
 are under risk of being exploited by attackers.
 
 Besides, web applications, email applications, and other codes that use this library
 are vulnerable.
+
+For instance, google’s Chrome Browser rely on GnuTLS library,
+so if you use chrome under a vulnerable version of GnuTLS, you are on risk.
 
 ### Bug Report
 Not applied.
@@ -47,6 +51,8 @@ Not applied.
 ## Analysis
 ### Source Code
 The bug lies in `lib/x509/verify.c`:
+
+The original file is here: https://www.gitorious.org/gnutls/gnutls/source/1832e0be467d63c089cdebe3fb1158fc0be32e44:lib/x509/verify.c
 
 ```c
 /* Checks if the issuer of a certificate is a
@@ -81,6 +87,7 @@ unsigned int flags)
 The function `check_if_ca` returns `true` or rather `1` when the certificate is a CA,
 or `0` otherwise.
 However, the other functions used return negative when they fail.
+
 In `C` programming language, every value other than `0` is treated as `true`.
 So, if the function `_gnutls_x509_get_signed_data` fails, the variable `result` is negative.
 When the function `check_if_ca` returns, it returns a negative, which then be regarded as true.
@@ -145,3 +152,62 @@ we can check as many choices as we want without any ambiguity.
 
 ###Tests that can trigger the bug
 
+I’m not going to use the original GnuTLS implementation to test.
+Instead, keeping this bug causes in mind, I wrote a simple c program with exactly the same issue.
+Source codes come here:
+
+```
+#include<stdio.h>
+#define CHECK_OK 1
+int check(int candidate);
+int do_check(int candidate);
+
+int main() {
+    int invalid = 3;
+    if (check(invalid)) {
+        printf("Pass\n");
+    } else {
+        printf("Fail\n");
+    }
+}
+
+/*
+ * return
+ *  true: pass
+ *  0: fail
+ */
+int check(int candidate) {
+    int result;
+    result = do_check(candidate);
+    if (result<0)
+        goto fail;
+    result = 0;
+fail:
+    return result;
+}
+
+/*
+ * return
+ *  negative: fail
+ *  0: pass
+ */
+int do_check(int candidate) {
+    if (candidate == CHECK_OK) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+```
+Here we have `check` function to check whether the candidate given is valid.
+We define `CHECK_OK=1` as the correct state while we give `3` to the check function.
+In main function, we give the result from `check` directly to if statement to judge `Pass` or `Fail`.
+In the implementation of `check`, we do expect to return true for pass and `0` for fail.
+
+However, in the low level implementation of check, the `do_check` function, the code follow the `Unix tradition`,
+that is, return 0 for success, and negative for fail.
+
+So, when the do_check function found a invalid certificate, it returns a negative.
+But in `if` statement in `main` function, issue is caused because `C` treats negative as `true`.
+
+When we compile the program and see the result, `Pass` is outputed even if we input an invalid certificate `3`.
