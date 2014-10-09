@@ -18,6 +18,7 @@ by Evil Genius
 This is our ideal API for network traffic. I try to obey RESTful API strictly.
 
 | URL	                | METHOD |	Body(payload)	                      | Description |
+| ----               | ----  | ---                                 | --- |
 | /users              | GET    | `None`                               | Get all user info |
 | /users/:userId      |	GET    | `None`                                 |	Get user info by id |
 | /users	            | POST   | `{username:"user",email:"xxx",...}`    |	Create A user |
