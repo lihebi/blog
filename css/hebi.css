@@ -51,6 +51,24 @@ header
 }
 
 /*----------
+social icon
+----------*/
+
+.social-icon { list-style: none;}
+.social-icon li { display: inline-block;}
+.social-icon li a {
+  background-image: url('https://farm9.staticflickr.com/8585/15797609621_5dc466cf4b_o.png');
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 136px;
+  height: 136px;
+  display: block;
+}
+
+.social-icon a.facebook { background-position: -20px 0;}
+.social-icon a.twitter {background-position: -160px top;}
+
+/*----------
 other
 ----------*/
 
