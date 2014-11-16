@@ -4,31 +4,34 @@ General term
 a:hover {
   text-decoration: none;
 }
-
 h2 {
   padding: 2px;
   border-bottom: 1px solid rgba(182, 182, 182, 0.7);
 }
-
 html {
   height: 100%;
+}
+/*attractive pink selection*/
+::-moz-selection { color: white;  background: #ff5e99; }
+::selection      { color: white;  background: #ff5e99; }
+.container-narrow {
+  margin: 0 5%;
 }
 
 /*----------
 Index Page
 ----------*/
-/*attractive pink selection*/
-::-moz-selection { color: white;  background: #ff5e99; }
-::selection      { color: white;  background: #ff5e99; }
-
 .block {
   background-color: white;
   border-radius: 10px;
   padding: 30px;
 }
-
-.container-narrow {
-  margin: 0 5%;
+.posts > div {
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
 }
 
 /*----------
@@ -95,21 +98,23 @@ social icon
 .social-icon a.twitter {background-position: -160px top;}
 
 /*----------
-other
+post
 ----------*/
 
-/* disqus */
+#home-btn {
+  margin-left: 20px;
+  color: lightcoral;
+}
 #disqus_thread {
   margin: 0 5%;
 }
 
-.posts > div {
-  padding: 20px;
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 10px;
-  margin: 20px;
-}
+
+/*----------
+other
+----------*/
+
+
 
 
 /*desert code theme*/
