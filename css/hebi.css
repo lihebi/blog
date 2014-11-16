@@ -1,7 +1,6 @@
-p, ul {
-  font-family: Georgia,"Times New Roman",Times,"Kai","Kaiti SC"
-  ,"KaiTi","BiauKai","楷体","楷体_GB2312",serif;
-}
+/*----------
+General term
+----------*/
 a:hover {
   text-decoration: none;
 }
@@ -11,8 +10,14 @@ h2 {
   border-bottom: 1px solid rgba(182, 182, 182, 0.7);
 }
 
+html {
+  height: 100%;
+}
 
-
+/*----------
+Index Page
+----------*/
+/*attractive pink selection*/
 ::-moz-selection { color: white;  background: #ff5e99; }
 ::selection      { color: white;  background: #ff5e99; }
 
@@ -24,146 +29,39 @@ h2 {
 
 .container-narrow {
   margin: 0 5%;
-  /*max-width: 1000px;*/
 }
 
-html {
-/*  background-color: #fdf6e3;*/
-/*  background-image: url("http://zuchefeng.oss-cn-hangzhou.aliyuncs.com/wood.jpeg");*/
-/*background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
-background-image: url("/images/checker.png");*/
-}
-body {
-  /*background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;*/*/
-  /*background-image: url("/images/checker.png");*/
-  /*background-image: url("/images/bg.png"); */
-}
-
-body.sidebar #canvas {
-  -webkit-transform: translate(20%);
-  -moz-transform: translate(20%);
-  -ms-transform: translate(20%);
-  transform: translate(20%);
-}
-
-#canvas {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  /*background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;*/
-  /*background-image: url("/images/checker.png");*/
-  /*background-image: url("/images/bg.png");*/
-  background-color: white;
-  min-height: 2000px;
-  padding-top: 40px;
-  transition: 400ms;
-  z-index: 1;
-}
-html {
-  height: 100%;
-}
-
-#menu-btn {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  font-size: 20px;
-}
-
-#menu-btn a {
-  color: black;
-}
-
-#index-title {
-  margin: 40px auto;
+/*----------
+header
+----------*/
+#header {
+  height: 420px;
+  background-size: cover;
+  background-position: 0 -350px;
+  color: rgba(255, 255, 255, 0.65);
   text-align: center;
 }
 
-nav {
-  display: none;
+#header .title {
+  font-size: 5em;
+  padding-top: 120px;
+}
+#header .desc {
+  font-size: 2em;
 }
 
-/*#main {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-}*/
+/*----------
+other
+----------*/
+
+
 
 .posts > div {
   padding: 20px;
-/*  background-color: #f5f5f5;*/
-/*  margin: 20px;*/
-  /*border-bottom: 1px solid #000;*/
   border: 1px solid black;
   background-color: white;
   border-radius: 10px;
-  margin-bottom: 20px;
-}
-.posts > div:last-child {
-  /*border-bottom: none;*/
-}
-
-/*#sb-site {
-  background-color: transparent;
-}*/
-
-
-
-#sidebar {
-  position: fixed;
-  width: 20%;
-  height: 100%;
-  background-color: #222222;
-  color: white;
-  font-size: 14px;
-  top: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#sidebar ul li {
-  width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0px;
-  margin: 0;
-}
-#sidebar ul > li:first-child {
-  border-top: none;
-}
-#sidebar ul > li:last-child {
-  border-bottom: none;
-}
-#sidebar ul li a {
-  width: 100%;
-  display: inline-block;
-  padding: 1em;
-  color: #f2f2f2;
-}
-#sidebar ul li label {
-  color: gray;
-  width: 100%;
-  padding: 1em;
-  display: inline-block;
-}
-#sidebar ul li a:hover {
-  text-decoration: none;
-  background-color: rgba(255,255,255,0.05);
-  color: rgba(218,43,93,1);
-}
-#sidebar ul li a.active {
-  text-decoration: none;
-  background-color: rgba(255,255,255,0.05);
-  color: rgba(218,43,93,1);
-}
-
-#copyright {
-  margin: 10px auto;
+  margin: 20px;
 }
 
 
