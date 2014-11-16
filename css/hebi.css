@@ -69,6 +69,8 @@ header
 }
 #header a#about-btn span {
     font-size: 70px;
+    position: relative;
+    top: -12px;
 }
 
 /*----------
