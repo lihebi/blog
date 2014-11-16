@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: Set up printer at Atanasoff
 location: Atanasoff, Ames
 time: 21:52:25
-
 ---
 
 # Set up printer at Atanasoff on mac

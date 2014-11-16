@@ -1,21 +1,16 @@
----
-layout: hebi-default
----
+{% include head.html %}
 
-<h1>{{ page.title }}</h1>
-<span class="meta">{{ page.date | date_to_string }}</span>
+<div class='container-narrow' id="main">
 
-<!-- <div id="tags" class="pull-right" style="display: inline-block">
-  {% for tag in page.tags %}
-  <a class="btn btn-success" href="/tags.html?{{tag}}"> {{ tag }} </a>
-  {% endfor %}
-</div> -->
-<span class="pull-right"><a href="https://github.com/lihebi/blog/edit/gh-pages/{{page.path}}">Edit</a></span>
-
-<hr>
-
-<div class="post">
-  {{ content }}
+  <h1>{{ page.title }}</h1>
+  <span class="meta">{{ page.date | date_to_string }}</span>
+  <span class="pull-right">
+    <a href="https://github.com/lihebi/blog/edit/gh-pages/{{page.path}}">Edit</a>
+  </span>
+  <hr>
+  <div class="post">
+    {{ content }}
+  </div>
 </div>
 
 
@@ -40,3 +35,5 @@ var disqus_shortname = "hebiblog";
   (document.getElementsByTagName('head')[0] || document.getElementByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
+
+{% include foot.html %}

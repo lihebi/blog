@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: Com S363 Projects Guide for Mac and Unix
 location: Ames, IA
 time: 22:33:02
-
 ---
 
 If you are not familiar with command line, learn yourself. Links below may help.
@@ -126,7 +123,7 @@ you will get the folder back.
 
 ###5. Submit
 ```sh
-turnin cs363 Fall2014/ProjectP0 P0 
+turnin cs363 Fall2014/ProjectP0 P0
 ```
 
 

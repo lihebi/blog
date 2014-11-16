@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: ISU WebClient Wiki
 location: Ames
 time: 16:25:21
-
 ---
 
 # ISU Face Recognition WebClient

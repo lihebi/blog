@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: Project P1 for ComS363
 location: Ames, IA
 time: 15:39:18
-
 ---
 
 # Frequent Errors
@@ -85,4 +82,3 @@ select distinct e.CourseCode, e.SectionNo from Student s, Enrollment e where s.C
 ```sql
 select distinct p.name, i.Salary from Instructor i, Person p, Student s where s.Classification = ‘Freshman’;
 ```
-

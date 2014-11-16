@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: LLVM and Soot
 location: Ames
 time: 12:07:25
-
 ---
 
 # LLVM

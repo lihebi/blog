@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: Leetcode MinStack
 location: Ames
 time: 18:11:17
-
 ---
 
 好久不写c程序了，语法忘了一半。记录一下basic syntax吧。

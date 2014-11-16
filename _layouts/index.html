@@ -1,0 +1,12 @@
+{% include head.html %}
+
+<div id="header" style="background-image: url({{page.image}})">
+  <p class="title">{{ page.header }}</p>
+  <p class="desc">{{ page.desc }}</p>
+</div>
+
+<div class='container-narrow' id="main">
+  {{ content }}
+</div>
+
+{% include foot.html %}

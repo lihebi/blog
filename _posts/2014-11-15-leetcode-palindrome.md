@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: Leetcode Palindrome
 location: Ames
 time: 08:31:20
-
 ---
 
 [Palindrome](https://oj.leetcode.com/problems/valid-palindrome/)

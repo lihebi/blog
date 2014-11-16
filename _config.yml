@@ -2,6 +2,13 @@ name: Hebi's Blog
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-pygments: true
+highlighter: pygments
 paginate: 5
 # excerpt_separator: <!--more-->
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: NDNStream
 location: Huaibei
 time: 11:10:34
-
 ---
 
 # 概述

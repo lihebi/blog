@@ -1,10 +1,7 @@
 ---
-
-layout: hebi-post
 title: GnuTLS Bug Analysis for Com S641
 location: Ames, IA
 time: 04:31:15
-
 ---
 
 # GnuTLS Bug Analysis

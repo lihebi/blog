@@ -1,6 +1,4 @@
 ---
-
-layout: hebi-post
 title: ndnd与ndnpeek关系文档
 location: 合肥
 time: 08:25:47
