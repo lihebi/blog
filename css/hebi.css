@@ -49,6 +49,27 @@ header
 #header .desc {
   font-size: 2em;
 }
+#header a#about-btn {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    transition: 1s;
+    float: right;
+    margin-right: 30px;
+}
+#header a#about-btn:hover {
+    color: red;
+    background-color: white;
+    transition: 1s;
+}
+#header a#about-btn span {
+    font-size: 70px;
+}
 
 /*----------
 social icon
