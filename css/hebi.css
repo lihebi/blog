@@ -77,7 +77,10 @@ header
 social icon
 ----------*/
 
-.social-icon { list-style: none;}
+.social-icon {
+  list-style: none;
+  text-align: center;
+}
 .social-icon li { display: inline-block;}
 .social-icon li a {
   background-image: url('https://farm9.staticflickr.com/8585/15797609621_5dc466cf4b_o.png');
