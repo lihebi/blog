@@ -73,8 +73,9 @@ header
 #header a#about-btn span {
     font-size: 70px;
     position: relative;
-    top: -12px;
-    font-family: cursive;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
 }
 
 /*----------
