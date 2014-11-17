@@ -94,10 +94,22 @@ social icon
   width: 136px;
   height: 136px;
   display: block;
+  -webkit-filter: grayscale(1);
 }
 
+
 .social-icon a.facebook { background-position: -20px 0;}
-.social-icon a.twitter {background-position: -160px top;}
+.social-icon a.github {background-position: -160px top;}
+.social-icon a.google {background-position: -300px 0;}
+.social-icon a.website {
+  background-image: url('https://farm8.staticflickr.com/7535/15801057432_59258f0d6e_o.png');
+  background-position: -160px 0;
+}
+.social-icon a.email {background-position: -300px -140px;}
+
+.social-icon a:hover {
+  -webkit-filter: grayscale(0);
+}
 
 /*----------
 post
