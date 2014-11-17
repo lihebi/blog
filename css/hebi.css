@@ -123,6 +123,17 @@ post
   margin: 0 5%;
 }
 
+/*----------
+custom fonts
+----------*/
+
+/*@font-face {
+  font-family: 'hebi';
+  src: url('/css/out.bmp') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
 
 /*----------
 other
